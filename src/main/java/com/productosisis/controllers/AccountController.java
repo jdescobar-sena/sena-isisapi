@@ -47,8 +47,9 @@ public class AccountController {
 	public Account update(@RequestBody Account a, @PathVariable Integer id) {
 		Account existingAccount = accountService.findById(id).get();
 		
-		existingAccount.setFirstName(a.getFirstName());
-		existingAccount.setLastName(a.getLastName());
+		existingAccount.setDocument_id(a.getDocument_id());
+		existingAccount.setFirst_name(a.getFirst_name());
+		existingAccount.setLast_name(a.getLast_name());
 		
 		// como entrará la fecha aca? en jsp se entra así: "yyyy-MM-dd"
 		existingAccount.setBirthdate(a.getBirthdate());
