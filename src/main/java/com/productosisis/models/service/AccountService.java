@@ -10,4 +10,5 @@ public interface AccountService {
 	public List<Account> findAll();
 	public Account save(Account a);
 	public void deleteById(Integer id);
+	public String login(String email, String passwd);
 }

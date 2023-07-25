@@ -34,4 +34,20 @@ public class AccountServiceImpl implements AccountService {
 	public void deleteById(Integer id) {
 		accountRepository.deleteById(id);
 	}
+
+	@Override
+	public String login(String email, String passwd) {
+		// TODO Auto-generated method stub
+		Account account = accountRepository.findByEmail(email);
+		
+		if (account == null) {
+			return "{ 'Message': 'Account not found' }";
+		}
+		
+		if (!account.getPassword().equals(passwd)) {
+			return "{ 'Message': 'Incorrect password' }";
+		}
+		
+		return "{ 'Message': 'Login successful' }";
+	}
 }

@@ -7,5 +7,7 @@ import com.productosisis.models.entity.Account;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
+	// this is to find an account by email
+	Account findByEmail(String email);
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +52,7 @@ public class AccountController {
 		existingAccount.setFirst_name(a.getFirst_name());
 		existingAccount.setLast_name(a.getLast_name());
 		
-		// como entrará la fecha aca? en jsp se entra así: "yyyy-MM-dd"
+		// how does the date come in? In jsp we put it like this: "yyyy-MM-dd"
 		existingAccount.setBirthdate(a.getBirthdate());
 		
 		existingAccount.setEmail(a.getEmail());
@@ -61,5 +62,9 @@ public class AccountController {
 		return accountService.save(existingAccount);
 	}
 	
-	
+	@PutMapping("/login")
+	public ResponseEntity<String> login(@RequestBody Account account) {
+		String message = accountService.login(account.getEmail(), account.getPassword());
+		return ResponseEntity.ok(message);
+	}
 }
