@@ -1,3 +1,13 @@
+/*
+ * STEP 1
+ * Primero se crean los paquetes que se van a usar:
+ * security
+ * models.entity
+ * models.service
+ * repository
+ * controllers
+ * Dentro del paquete models.entity se crearan las clases correspondientes con los modelos de base de datos del proyecto.
+ */
 package com.productosisis.models.entity;
 
 import java.util.Date;
