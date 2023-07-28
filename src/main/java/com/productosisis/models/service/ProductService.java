@@ -12,8 +12,8 @@ import java.util.Optional;
 import com.productosisis.models.entity.Product;
 
 public interface ProductService {
-	public Optional<Product> findById(int id);
+	public Optional<Product> findById(Long id);
 	public List<Product> findAll();
 	public Product save(Product p);
-	public void deleteById(int id);
+	public void deleteById(Long id);
 }

@@ -32,7 +32,7 @@ public class ProductController {
 	ProductService productService;
 	
 	@GetMapping("/{id}")
-	public Optional<Product> findById(@PathVariable int id) {
+	public Optional<Product> findById(@PathVariable Long id) {
 		return productService.findById(id);
 	}
 	
@@ -47,12 +47,12 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
+	public void delete(@PathVariable Long id) {
 		productService.deleteById(id);
 	}
 	
 	@PutMapping("/update/{id}")
-	public Product update(@RequestBody Product p, @PathVariable int id) {
+	public Product update(@RequestBody Product p, @PathVariable Long id) {
 		
 		Product existingProduct = productService.findById(id).get();
 		
@@ -60,6 +60,6 @@ public class ProductController {
 		existingProduct.setPrice(p.getPrice());
 		existingProduct.setDescription(p.getDescription());
 		
-		return p;
+		return productService.save(existingProduct);
 	}
 }

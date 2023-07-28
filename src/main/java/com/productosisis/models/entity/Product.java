@@ -33,7 +33,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
-	private int product_id;
+	private long product_id;
 	
 	@Column(name = "name")
 	private String name;
@@ -41,14 +41,14 @@ public class Product {
 	@Column(name = "price")
 	private float price;
 	
-	@Column(name = "description")
-	private String description; // en la base de datos debe cambiarse de varchar a longtext
+	@Column(name = "description", length = 65535)
+	private String description;
 
 	public Product() {
 		
 	}
 
-	public Product(int product_id, String name, float price, String description) {
+	public Product(Long product_id, String name, float price, String description) {
 		super();
 		this.product_id = product_id;
 		this.name = name;
@@ -56,11 +56,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public int getProduct_id() {
+	public Long getProduct_id() {
 		return product_id;
 	}
 
-	public void setProduct_id(int product_id) {
+	public void setProduct_id(Long product_id) {
 		this.product_id = product_id;
 	}
 
